@@ -31,7 +31,7 @@ class Objects():
                  filters: Optional[list] = None,
                  lazy_loading: Optional[bool] = True,  
                  **orbital_elements):
-         
+        
         self.lazy_loading = lazy_loading
         
         self.min_a, self.max_a, self.min_incl, self.max_incl, self.min_peri, self.max_peri, self.min_e, self.max_e, self.min_hd, self.max_hd = validate_orbital_elements(**orbital_elements)
@@ -826,7 +826,7 @@ class Objects():
     def orbital_param_distribution(self,
                                     parameter : Literal["e", "a", "incl", "q"],
                                     filters: Optional[list] = None,
-                                    plot_type: Literal[PLOT_TYPES] = 'BOX',
+                                    plot_type: Optional[str] = 'BOX',
                                     title : Optional[str] = None,
                                     library: Optional[str] = "seaborn",
                                     cache_data: Optional[bool] = False
@@ -897,7 +897,7 @@ class Objects():
     def e_distributions(
         self,
         filters: Optional[list] = None,
-        plot_type: Literal[PLOT_TYPES] = 'BOX',
+        plot_type: Optional[str] = 'BOX',
         title : Optional[str] = None,
         library: Optional[str] = "seaborn",
         cache_data: Optional[bool] = False
@@ -916,7 +916,7 @@ class Objects():
     def a_distributions(
         self,
         filters: Optional[list] = None,
-        plot_type: Literal[PLOT_TYPES] = 'BOX',
+        plot_type: Optional[str] = 'BOX',
         title : Optional[str] = None,
         library: Optional[str] = "seaborn",
         cache_data: Optional[bool] = False
@@ -935,7 +935,7 @@ class Objects():
     def q_distributions(
         self,
         filters: Optional[list] = None,
-        plot_type: Literal[PLOT_TYPES] = 'BOX',
+        plot_type: Optional[str] = 'BOX',
         title : Optional[str] = None,
         library: Optional[str] = "seaborn",
         cache_data: Optional[bool] = False
@@ -956,7 +956,7 @@ class Objects():
     def incl_distributions(
         self,
         filters: Optional[list] = None,
-        plot_type: Literal[PLOT_TYPES] = 'BOX',
+        plot_type: Optional[str] = 'BOX',
         title : Optional[str] = None,
         library: Optional[str] = "seaborn",
         cache_data: Optional[bool] = False
@@ -977,7 +977,7 @@ class Objects():
     def all_orbital_distributions(
         self,
         filters: Optional[list] = None,
-        plot_type: Literal[PLOT_TYPES] = 'BOX',
+        plot_type: Optional[str] = 'BOX',
         title : Optional[str] = None,
         library: Optional[str] = "seaborn",
         cache_data: Optional[bool] = False

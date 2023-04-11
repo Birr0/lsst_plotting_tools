@@ -25,11 +25,29 @@ def _plot_orbit(
     title : Optional[str] = None,
     mpcdesignation: Optional[str] = None,
     ssobjectid: Optional[int] = None,
-    time_format: Optional[Literal['ISO', 'MJD']] = 'ISO',
     projection: Optional[Literal['2d', '3d']] = '2d',
     library : Optional[str] = "seaborn",
-    cache_data: Optional[bool] = False,
 ):
+    '''
+    _plot_orbit will plot a 2d or 3d cartesian visualisation of a solar system object
+
+    Parameters
+    ----------
+    df: Optional[pd.DataFrame] = None,
+    filters: Optional[list] = None,
+    start_time : Optional[float] = None, end_time : Optional[float] = None,
+    title : Optional[str] = None,
+    mpcdesignation: Optional[str] = None,
+    ssobjectid: Optional[int] = None,
+    projection: Optional[Literal['2d', '3d']] = '2d',
+    library : Optional[str] = "seaborn",
+
+
+    Returns
+    -------
+    plot: ScatterPlot
+
+    '''
     if df is None:
         start_time, end_time = validate_times(start_time = start_time, end_time = end_time)
         cols = [
@@ -137,12 +155,32 @@ def objects_in_field(
     filters: Optional[list] = None,
     start_time : Optional[float] = None, end_time : Optional[float] = None,
     title : Optional[str] = None,
-    time_format: Optional[Literal['ISO', 'MJD']] = 'ISO',
+    #time_format: Optional[Literal['ISO', 'MJD']] = 'ISO',
     projection: Optional[Literal['2d', '3d']] = '2d',
     library : Optional[str] = "seaborn",
     cache_data: Optional[bool] = False,
     **orbital_elements
 ):
+    '''
+    objects_in_field returns a cartesian plot of all the objects detected within an observational period
+
+    Parameters
+    ----------
+    df: Optional[pd.DataFrame] = None,
+    filters: Optional[list] = None,
+    start_time : Optional[float] = None, end_time : Optional[float] = None,
+    title : Optional[str] = None,
+    #time_format: Optional[Literal['ISO', 'MJD']] = 'ISO',
+    projection: Optional[Literal['2d', '3d']] = '2d',
+    library : Optional[str] = "seaborn",
+    cache_data: Optional[bool] = False,
+    **orbital_elements
+
+    Returns
+    -------
+    plot: ScatterPlot
+    
+    '''
     if df is None:
         start_time, end_time = validate_times(start_time = start_time, end_time = end_time)
         

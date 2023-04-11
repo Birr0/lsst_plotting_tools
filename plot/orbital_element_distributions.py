@@ -37,6 +37,25 @@ def _tisserand_relations(
     cache_data: Optional[bool] = False,
     **orbital_elements
 ):
+    '''
+    _tisserand_relations allows the tisserand paramater to be plotted against a speficied orbital element
+
+    Parameters
+    ----------
+    y : Literal["incl", "q", "e", "a"],
+    df : Optional[pd.DataFrame] = None,
+    start_time : Optional[float] = None,
+    end_time : Optional[float] = None,
+    title : Optional[str] = None,
+    plot_type : Literal["scatter", "2d_hist", "2d_hex"] = "scatter",
+    cache_data: Optional[bool] = False,
+    **orbital_elements
+
+    Returns
+    -------
+    plot: Histogram2D
+
+    '''
     if df is None:
         start_time, end_time = validate_times(start_time = start_time, end_time = end_time)
     
@@ -106,6 +125,27 @@ def _orbital_relations(
     cache_data: Optional[bool] = False,
     **orbital_elements
 ):
+    '''
+    _orbital relations allows plots to be made of orbital parameters for comparison
+
+    Parameters
+    ----------
+    x : Literal["incl", "q", "e", "a"],
+    y : Literal["incl", "q", "e", "a"],
+    df : Optional[pd.DataFrame] = None,
+    start_time : Optional[float] = None,
+    end_time : Optional[float] = None,
+    title : Optional[str] = None,
+    colorbar: bool = True,
+    plot_type : Literal["scatter", "2d_hist", "2d_hex"] = "scatter",
+    cache_data: Optional[bool] = False,
+    **orbital_elements
+
+    Returns
+    -------
+    plot: Histogram2D
+
+    '''
     if df is None:
         start_time, end_time = validate_times(start_time = start_time, end_time = end_time)
         

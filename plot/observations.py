@@ -35,7 +35,24 @@ def _detection_distributions(
     cache_data: Optional[bool] = False,
     **orbital_elements
 ):
+    '''
+    _detection_distributions returns a histogram of the detections made in specified period 
     
+    Parameters
+    ----------
+    start_time : float, end_time : float,
+    df : Optional[pd.DataFrame] = None,
+    title : Optional[str] = None,
+    timeframe : Literal["daily", "monthly", "yearly"] = "daily",
+    time_format: Optional[Literal['ISO', 'MJD']] = 'ISO',
+    cache_data: Optional[bool] = False,
+    **orbital_elements
+
+    Returns
+    -------
+    plot : HistogramPlot
+
+    '''
     if timeframe not in TIMEFRAME:
         raise Exception(f"Timeframe must be one of {TIMEFRAME}")
     
@@ -87,7 +104,9 @@ def _detection_distributions(
 
 
 def object_detections(start: float, end: float):
-    
+    '''
+    helper function for querying object detections
+    '''
     query = """
     SELECT
         ra, decl
@@ -105,6 +124,10 @@ def object_detections(start: float, end: float):
 
 
 def ccd_visit(ccd_visit_id : int):
+    '''
+    helper function for querying a CCD visit by Id
+    
+    '''
     query = """
     SELECT
         eclipticLambda as lon, eclipticBeta as lat, ccdVisitId, midPointTAI
